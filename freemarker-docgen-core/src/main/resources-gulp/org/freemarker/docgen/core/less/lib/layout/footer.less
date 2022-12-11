@@ -1,0 +1,144 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+.site-footer {
+  border-top: 3px solid #003270;
+  background-color: @brand-color;
+  background-image: radial-gradient(ellipse at 50% -50px,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(0, 12, 59, 1) 86%,
+    rgba(0, 12, 59, 1) 100%), url(img/patterned-bg.png);
+
+  font-weight: 300;
+  color: #fff;
+
+  a {
+    color: #fff;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+
+.footer-top-padding() {
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  @media (min-width: @screen-md-min) {
+      padding-top: 24px;
+  }
+}
+
+.footer-top {
+
+  @media (min-width: @screen-xs-min) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: @screen-md-min) {
+    justify-content: space-between;
+  }
+
+  .col-left {
+    flex: 1 1 auto;
+  }
+
+  .col-right {
+    .footer-top-padding();
+    flex: 1 0 auto;
+  }
+
+
+  .col-right {
+    @media (min-width: @screen-sm-min) {
+      text-align: right;
+    }
+  }
+}
+
+.sitemap {
+
+  @media (min-width: @screen-xs-min) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .column {
+    .footer-top-padding();
+
+    margin-right: 12px;
+    flex: 0 1 auto;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      margin-right: 54px;
+    }
+
+    .column-header {
+      color: #fff;
+      border-bottom: 2px solid #4c76ab;
+      margin: 0 0 6px;
+      padding-bottom: 6px;
+      font-weight: 400;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    a {
+      padding-right: 9px;
+      display: block;
+    }
+  }
+}
+
+.xxe {
+  display: inline-block;
+  width: 110px;
+  height: 34px;
+  margin-top: 15px;
+
+  background: #fff url(img/xxe.png) 50% no-repeat;
+  border: 1px solid #002254;
+
+  span {
+    display: none;
+  }
+}
+
+.footer-bottom {
+
+  padding: 45px 0 25px;
+  font-size: 12px;
+  
+  p {
+    margin: 0 0 6px;
+  }
+  
+}

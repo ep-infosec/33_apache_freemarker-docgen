@@ -1,0 +1,100 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<!--
+  This is separated from the build.xml to prevent the classloading mess caused
+  by that build.xml (re)creates lib/docgen.jar.
+
+  Invoke this as:
+    ant -f test.xml
+-->
+<project name="docgen-test" default="test" xmlns:docgen="http://freemarker.org/docgen">
+  <path id="docgenJars.path">
+    <fileset dir="..">
+      <include name="freemarker-docgen-ant/target/freemarker-docgen-ant-*.jar"/>
+      <include name="freemarker-docgen-ant/target/dependencies/*.jar"/>
+    </fileset>
+  </path>
+
+  <taskdef resource="org/freemarker/docgen/ant/antlib.properties"
+      uri="http://freemarker.org/docgen"
+      classpathref="docgenJars.path"
+  />
+
+  <target name="test">
+    <mkdir dir="build/test" />
+    <delete includeEmptyDirs="true">
+      <fileset dir="build/test" includes="**/*" defaultexcludes="no" />
+    </delete>
+
+    <docgen:transform
+        srcdir="srcdirs/9" destdir="../target/legacy-tests/ant/docgen/9"
+        offline="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/8" destdir="../target/legacy-tests/ant/docgen/8"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/7" destdir="../target/legacy-tests/ant/docgen/7"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/6" destdir="../target/legacy-tests/ant/docgen/6"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/5" destdir="../target/legacy-tests/ant/docgen/5"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/4" destdir="../target/legacy-tests/ant/docgen/4"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/3" destdir="../target/legacy-tests/ant/docgen/3"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/2" destdir="../target/legacy-tests/ant/docgen/2"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+    <docgen:transform
+        srcdir="srcdirs/1" destdir="../target/legacy-tests/ant/docgen/1"
+        offline="true"
+        generateEclipseToC="true"
+    />
+
+  </target>
+
+</project>

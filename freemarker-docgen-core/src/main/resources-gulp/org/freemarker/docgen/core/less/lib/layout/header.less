@@ -1,0 +1,126 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+.header-top-bg {
+  background-color: @brand-color;
+  background-image: radial-gradient(circle at 50% 15px,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 50%,
+    #00276c 100%),
+    url(img/patterned-bg.png);
+  box-shadow: 0 3px 9px #c1c1c1;
+  border-bottom: 3px solid #003270;
+  position: relative;
+  z-index: 2;
+}
+
+.header-top {
+  text-align: center;
+  padding-top: 13px;
+  padding-bottom: 13px;
+
+  @media (min-width: @screen-xs-min) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+}
+
+.header-bottom-bg {
+  background-color: #efefef;
+  border-bottom: 1px solid #dedede;
+  box-shadow: 0 0 7px #eee;
+  position: relative;
+  z-index: 1;
+}
+
+.search-row {
+  padding-top: 12px;
+
+  @media (min-width: @screen-xs-min) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  .navigation-header,
+  .search-form {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .navigation-header {
+    display: block;
+    font-size: 18px;
+    line-height: 1;
+    flex: 1 1 auto;
+
+    @media (min-width: @screen-xs-min) {
+      font-size: 27px;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      flex-grow: 0;
+    }
+  }
+}
+
+.breadcrumb-row {
+  // Mobile view:
+  padding-top: 6px;
+  // Non-mobile view:
+  @media (min-width: @screen-xs-min) {
+    padding-top: 0; // increase padding when search row doesn't exist
+  }
+
+  padding-bottom: 9px;
+
+  // Mobile view has small font here
+  line-height: 2.5;
+
+  @media (min-width: @screen-xs-min) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    line-height: 1.5;
+  }
+}
+
+.oldBrowserWarning {
+  display: none;
+  background-color: #C00;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 24px;
+
+  /* IE10-IE11 css: */
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+     display: block;
+  }
+}

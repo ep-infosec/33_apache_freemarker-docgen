@@ -1,0 +1,198 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+.main-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  @media (min-width: @screen-sm-min) {
+    padding-top: 30px;
+    padding-bottom: 48px;
+  }
+
+  // when js is disabled
+  &.no-toc {
+    display: block;
+  }
+
+  #table-of-contents-wrapper {
+    // Hide for typical mobile screens initially:
+    display: none;
+    &.visible-hamburger-menu {
+      display: block;
+    }
+
+    @media (min-width: @screen-xs-min) {
+      display: block;
+    }
+  }
+
+  .col-left {
+    // This is for when it's inside the hamburger-menu:
+    padding: @toc-sm-menu-font-size * 0.25 @toc-sm-menu-font-size * 0.75;
+    position: absolute;
+    left: 0px;
+    top: @hamburger-icon-top + @hamburger-icon-height;
+    z-index: 100;
+    background: #fff; // TODO variable?
+    border: 1px solid #000; // TODO variable?
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.33);
+
+    @media (min-width: @screen-xs-min) {
+      // For all widths where we show the left column:
+      padding: 0;
+      position: static;
+      top: 0;
+      left: 0;
+      border: none;
+      box-shadow: none;
+      overflow: hidden;
+
+      // For xs width:
+      flex: 0 0 160px;
+      max-width: 160px; // set max-width to prevent flicker
+      margin-right: @gutter-width / 4 * 3;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      flex-basis: 210px;
+      max-width: 210px;
+      margin-right: @gutter-width * 2;
+
+      &.expanded {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .col-right {
+    flex: 1;
+    position: relative; // so we can position bottom pager
+  }
+}
+
+.page-content {
+
+  @media (min-width: @screen-sm-min) {
+    padding-bottom: 42px; // to accomodate bottom pager when it becomes positioned absolutely
+  }
+
+  a {
+    word-break: break-word; // keep long urls from causing page scrolling
+  }
+
+  .page-title {
+
+    border-bottom: 1px solid @border-gray;
+
+    @border-spacing: 12px;
+    padding-bottom: @border-spacing;
+    margin-bottom: @border-spacing;
+    
+    /* The Google results already adds some borders and is mostly empty at the top */
+    .page-type-docgen-search-results & {
+      border: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      display: flex;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      padding-bottom: @border-spacing * 2;
+      margin-bottom: @border-spacing * 2;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .title-wrapper {
+      flex: 1;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+
+      @media (min-width: @screen-sm-min) {
+        font-size: 30px;
+      }
+    }
+
+    .subtitle {
+      display: block;
+      font-size: 14px;
+
+      @media (min-width: @screen-sm-min) {
+        font-size: 18px;
+      }
+
+      @media (min-width: @screen-md-min) {
+        font-size: 24px;
+      }
+
+    }
+  }
+
+  .content-header {
+    &::before {
+      .icon();
+      .icon-paragraph();
+      margin-left: -18px;
+      margin-top: 2px;
+      width: 18px;
+
+      font-weight: normal;
+      font-size: 18px;
+      color: #C82222;
+
+      float: left;
+      visibility: hidden;
+
+      //transform: rotate(45deg);
+
+      @media (min-width: @screen-sm-min) {
+        margin-left: -24px;
+      }
+    }
+  }
+
+  .active {
+    &::before {
+      animation: header-pulse .3s 3 steps(2, end);
+    }
+  }
+}
+
+
+@keyframes header-pulse {
+  0%   { visibility: hidden; }
+  100% { visibility: visible; }
+}

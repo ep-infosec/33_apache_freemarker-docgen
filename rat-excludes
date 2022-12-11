@@ -1,0 +1,99 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+# 
+#   http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# About the paths in this file
+#
+# Rat will use this file when building any of the modules, or the parent
+# project. When Maven builds a module, it will interpret these paths relatively
+# to that module. So, unfortunatelly, we have a mix of all the module-relative
+# paths here, some only makes sense when a certain module is built.
+
+# In src/:
+# --------
+
+# Files covered in the LICENSE file:
+src/main/resources/org/freemarker/docgen/core/schema/docbook.rng
+src/main/resources/org/freemarker/docgen/core/statics/fonts/icomoon.svg
+src/main/resources/org/freemarker/docgen/core/statics/fonts/icomoon.eot
+src/main/resources/org/freemarker/docgen/core/statics/fonts/icomoon.ttf
+src/main/resources/org/freemarker/docgen/core/statics/fonts/icomoon.woff
+
+# Files without license header that were created in the FreeMarker project:
+package.json
+package-lock.json
+src/main/resources/org/freemarker/docgen/core/statics/fonts/selection.json
+src/main/resources/org/freemarker/docgen/core/statics/img/patterned-bg.png
+src/main/resources/org/freemarker/docgen/core/statics/img/xxe.gif
+src/main/resources/org/freemarker/docgen/core/statics/img/xxe.png
+legacy-tests/build/**
+legacy/srcdirs/1/bat.jpg
+legacy/srcdirs/1/figures/model2sketch.png
+legacy/srcdirs/1/figures/overview.png
+legacy/srcdirs/1/figures/tree.png
+legacy/srcdirs/1/logo.png
+legacy/srcdirs/2/logo.png
+legacy/srcdirs/2/test.gif
+legacy/srcdirs/3/logo.png
+legacy/srcdirs/4/logo.png
+legacy/srcdirs/5/logo.png
+legacy/srcdirs/6/logo.png
+legacy/srcdirs/7/logo.png
+legacy/srcdirs/8/logo.png
+legacy/srcdirs/9/logo.png
+
+# Tooling/IDE generated files:
+# ----------------------------
+
+node_modules/**
+.checkstyle
+.eslintrc
+.fbprefs
+.jshintrc
+ide-dependencies/**
+archive
+.git/**
+.ivy/**
+.bin/**
+bin/**
+build/**
+.build/**
+out/**
+.out/**
+target/**
+.settings/**
+.classpath
+.project
+.settings
+.idea/**
+*.iml
+*.iws
+*.ipr
+.idea_modules/**
+.out/**
+.gradle/**
+gradle/**
+.DS_Store*
+.AppleDouble
+.LSOverride
+.directory
+.Trash*
+
+# Well known files that need no license note:
+# -------------------------------------------
+
+README.md
+LICENSE-*

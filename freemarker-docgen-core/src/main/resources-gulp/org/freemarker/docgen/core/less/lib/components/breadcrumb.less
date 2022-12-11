@@ -1,0 +1,85 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+.breadcrumbs {
+  @media (min-width: @screen-xs-min) {
+    // For smaller screens increased .breadcrumb-row line height will make up for this
+    padding-top: @breadcrumb-row-padding-top;
+  }
+
+  // Right padding is the spacing between .breadcrumbs and .bookmarks (this works as overflow is hidden)
+  padding-right: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-size: @breadcrumb-row-font-size-xs;
+  @media (min-width: @screen-xs-min) {
+    font-size: @breadcrumb-row-font-size-sm;
+  }
+
+  ul {
+    display: inline-block;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: inline-block;
+
+    &::after {
+      content: '/';
+      color: #979797;
+      margin: 0 3px;
+
+      @media (min-width: @screen-sm-min) {
+        margin: 0 6px;
+      }
+    }
+
+    &:last-child {
+      a {
+        color: @text-color;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &.step-0 {
+      a {
+        &::after {
+          .icon();
+          .icon-list();
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          font-size: 12px;
+          position: relative;
+          top: 1px;
+        }
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}

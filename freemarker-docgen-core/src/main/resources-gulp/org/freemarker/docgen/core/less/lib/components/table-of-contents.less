@@ -1,0 +1,207 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+@toc-hamburger-menu-font-size: 16px;
+@toc-hamburger-menu-li-margin: 0.6em;
+@toc-xs-menu-font-size: 12px;
+@toc-sm-menu-font-size: 13px;
+
+.table-of-contents {
+  list-style-type: none;
+  padding: 0;
+
+  // This is for small screen, where the ToC is popped up by the hamburger menu, so it can be take the whole screen.
+  margin: 0;
+  font-size: @toc-hamburger-menu-font-size;
+
+  @media (min-width: @screen-xs-min) {
+    margin: 6px 0 0;
+    font-size: @toc-xs-menu-font-size;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    margin-top: 12px;
+    font-size: @toc-sm-menu-font-size;
+  }
+
+  .current {
+    &::before {
+      color: @link-hover;
+    }
+
+    > a {
+      &:first-child {
+        color: @link-hover;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    margin-top: @toc-hamburger-menu-li-margin;
+    margin-bottom: @toc-hamburger-menu-li-margin;
+    @media (min-width: @screen-xs-min) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+li.section {
+  border-bottom: 1px solid @border-gray;
+
+  padding-bottom: 0;
+  margin-bottom: @toc-hamburger-menu-li-margin;
+
+  @media (min-width: @screen-xs-min) {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+  }
+
+  &.last {
+    border-bottom: 0;
+    margin-bottom: 0;
+
+    .depth-0-link {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.depth-0-link {
+  color: @link-color;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: block;
+  line-height: 1;
+
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  a&:hover {
+    color: @link-hover;
+  }
+}
+
+.depth-1 {
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding-left: @toc-hamburger-menu-font-size + 1;
+    @media (min-width: @screen-xs-min) {
+      padding-left: @toc-xs-menu-font-size + 1;
+    }
+    @media (min-width: @screen-sm-min) {
+      padding-left: @toc-sm-menu-font-size + 1;
+    }
+
+    position: relative;
+
+    &::before {
+      .icon();
+      .icon-dot-single();
+      display: block;
+      position: absolute;
+      line-height: 1;
+
+      font-size: @toc-hamburger-menu-font-size;
+      top: @toc-hamburger-menu-font-size / 5;
+      left: -@toc-hamburger-menu-font-size / 4;
+      width: @toc-hamburger-menu-font-size;
+      height: @toc-hamburger-menu-font-size;
+      @media (min-width: @screen-xs-min) {
+        font-size: @toc-xs-menu-font-size;
+        top: @toc-xs-menu-font-size / 4;
+        left: -@toc-xs-menu-font-size / 4;
+        width: @toc-xs-menu-font-size;
+        height: @toc-xs-menu-font-size;
+      }
+      @media (min-width: @screen-sm-min) {
+        font-size: @toc-sm-menu-font-size;
+        top: @toc-sm-menu-font-size / 4;
+        left: -@toc-sm-menu-font-size / 4;
+        width: @toc-sm-menu-font-size;
+        height: @toc-sm-menu-font-size;
+      }
+    }
+
+    &.has-children {
+      &::before {
+        .icon-add();
+
+        cursor: pointer;
+        font-size: @toc-hamburger-menu-font-size;
+        @media (min-width: @screen-xs-min) {
+          font-size: @toc-xs-menu-font-size;
+        }
+        @media (min-width: @screen-sm-min) {
+          font-size: @toc-sm-menu-font-size;
+        }
+      }
+
+      &.open {
+        &::before {
+          .icon-remove();
+
+          font-size: @toc-hamburger-menu-font-size;
+          @media (min-width: @screen-xs-min) {
+            font-size: @toc-xs-menu-font-size;
+          }
+          @media (min-width: @screen-sm-min) {
+            font-size: @toc-sm-menu-font-size;
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    display: block;
+    color: #444;
+
+    &:hover {
+      color: #888;
+    }
+  }
+}
+
+.depth-2 {
+  margin: 0;
+  padding: 0;
+}
+
+.closed {
+   ul {
+    display: none;
+  }
+}
+
+.open {
+  ul {
+    display: block;
+  }
+}
+
+.side-toc-logo img {
+    width: 100%
+}
